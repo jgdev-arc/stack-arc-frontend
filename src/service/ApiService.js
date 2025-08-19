@@ -5,7 +5,7 @@ const API_BASE_URL =
   process.env.REACT_APP_API_BASE_URL || "http://localhost:5050";
 
 export default class ApiService {
-  static BASE_URL = `${API_HOST}/api`;
+  static BASE_URL = `${normalize(API_BASE_URL)}/api`;
   static ENCRYPTION_KEY = "stackarc-inventory";
 
   static encrypt(data) {
