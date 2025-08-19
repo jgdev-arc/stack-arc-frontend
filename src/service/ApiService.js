@@ -4,6 +4,8 @@ import CryptoJS from "crypto-js";
 const API_BASE_URL =
   process.env.REACT_APP_API_BASE_URL || "http://localhost:5050";
 
+const normalize = (url) => url.replace(/\/+$/, "");
+
 export default class ApiService {
   static BASE_URL = `${normalize(API_BASE_URL)}/api`;
   static ENCRYPTION_KEY = "stackarc-inventory";
