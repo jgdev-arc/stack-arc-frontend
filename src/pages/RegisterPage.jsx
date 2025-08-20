@@ -78,10 +78,10 @@ const RegisterPage = () => {
           <option value="ADMIN">Admin</option>
         </select>
 
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
       </form>
       <p>
-        Already have an account? <Link to="/register">Register</Link>
+        Already have an account? <Link to="/login">Login</Link>
       </p>
     </div>
   );
