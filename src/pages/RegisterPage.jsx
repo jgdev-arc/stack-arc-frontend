@@ -9,7 +9,6 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
-  const [role, setRole] = useState("USER");
 
   const navigate = useNavigate();
 
