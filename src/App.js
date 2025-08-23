@@ -14,13 +14,19 @@ import TransactionsPage from "./pages/TransactionsPage";
 import TransactionDetailsPage from "./pages/TransactionDetailsPage";
 import ProfilePage from "./pages/ProfilePage";
 import DashboardPage from "./pages/DashboardPage";
+import SplashScreen from "./pages/SplashScreen";
+import LandingPage from "./pages/LandingPage";
+import Logout from "./pages/Logout";
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/splash" element={<SplashScreen />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/logout" element={<Logout />} />
 
         {/*Admin Routes*/}
         <Route
