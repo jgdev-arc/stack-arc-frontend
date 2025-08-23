@@ -23,7 +23,7 @@ const RegisterPage = () => {
     e.preventDefault();
 
     try {
-      const registerData = { name, email, password, phoneNumber, role };
+      const registerData = { name, email, password, phoneNumber };
       await ApiService.registerUser(registerData);
       setMessage("Registration Successfull");
       navigate("/login");
