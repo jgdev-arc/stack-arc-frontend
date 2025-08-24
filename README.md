@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# <div align="center">🖥️ **Stack Arc – Frontend (React)** 🖥️</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean, responsive **React** SPA for inventory management. Features a polished landing page + one-time splash, JWT-auth flows, protected/admin routes, and a card-first UI that matches the backend’s capabilities. Deployed on **Azure Static Web Apps** and talks to the Spring Boot API via **Axios**. View the back end repository [here](https://github.com/jgdev-arc/Stack-Arc).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+<p align="center">
+  <i>“Fast to navigate, easy on the eyes, and wired for real work.”</i>
+</p>
 
-### `npm start`
+## :camera_flash: Features
+<img width="1536" height="1024" alt="architecture" src="https://github.com/user-attachments/assets/ccd8a390-2992-47d2-a75e-75b8a1660061" />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Modern SPA** – React + React Router; deep-linking supported (e.g., `/transaction/123`).
+- **Landing + One-Time Splash** – Brand splash shows once per session, then a concise landing that explains the app.
+- **Auth Flows** – Login/Register screens; token stored client-side; role-aware UI.
+- **Protected & Admin Routes** – `ProtectedRoute` for authenticated areas; `AdminRoute` for admin-only pages.
+- **Transactions UX** – Server-side filtering via query `q`; friendly details page with status updates.
+- **Inventory Suite** – Products, Categories, Suppliers, Purchases, Sales; consistent card/table views.
+- **Profile Page** – Displays the current user fetched from the backend.
+- **Responsive & Themed** – Teal/gray theme with a dark landing hero; consistent spacing, rounded cards, subtle shadows.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :earth_americas: Try It
 
-### `npm run build`
+If you’re here to **use the app**, open the **Azure Frontend**:  
+👉 **Open the UI:** https://\<YOUR-SWA-NAME\>.azurestaticapps.net
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Register, sign in, and explore the dashboard, products, suppliers, and transactions.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :electric_plug: API Integration
 
-### `npm run eject`
+- **Axios** service centralizes calls: `ApiService`  
+- Uses `REACT_APP_API_BASE_URL` for the backend base URL  
+- Transactions search uses `q` (e.g., `GET /transactions?q=widget`)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Auth**
+- On login, store the JWT in `localStorage`
+- Guards read token/role to control access
+- `ApiService` attaches the token to protected requests
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## :art: UI/Style Notes
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Theme**: teal accents with grays; landing uses dark navy hero.
+  - Landing: `#0f172a` base, teal accents `#5eead4` / `#14b8a6`
+  - App buttons: `#008080` hover `#2f4f4f`
+- **Patterns**:
+  - Section cards with rounded corners and soft shadows
+  - Compact grids for feature cards and steps
+  - Responsive image sizing via `clamp(...)` on the landing hero
+- **Assets**:
+  - Landing hero preview: `/test-images/app-preview.png`
+  - Brand image(s) live under `/public/` for root-relative paths
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## :file_folder: Project Structure (frontend)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```text
+frontend/
+├─ public/
+│  ├─ test-images/
+│  └─ (static assets: hero images, icons, etc.)
+├─ src/
+│  ├─ pages/
+│  │  ├─ LandingPage.jsx
+│  │  ├─ SplashScreen.jsx
+│  │  ├─ LoginPage.jsx
+│  │  ├─ RegisterPage.jsx
+│  │  ├─ DashboardPage.jsx
+│  │  ├─ TransactionsPage.jsx
+│  │  ├─ TransactionDetailsPage.jsx
+│  │  ├─ PurchasePage.jsx
+│  │  ├─ SellPage.jsx
+│  │  ├─ ProductPage.jsx
+│  │  ├─ AddEditProductPage.jsx
+│  │  ├─ CategoryPage.jsx
+│  │  ├─ SupplierPage.jsx
+│  │  ├─ AddEditSupplierPage.jsx
+│  │  └─ ProfilePage.jsx
+│  ├─ component/
+│  │  ├─ Sidebar.jsx
+│  │  ├─ ProtectedRoute.jsx (or service/Guard.js)
+│  │  └─ AdminRoute.jsx     (or service/Guard.js)
+│  ├─ service/
+│  │  ├─ ApiService.js
+│  │  └─ Guard.js           (exports ProtectedRoute, AdminRoute)
+│  ├─ App.js
+│  ├─ index.js
+│  └─ index.css
+└─ (GitHub Actions / config files as needed)
+```
+---
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# :memo: Authors :memo:
+- [@jgdev-arc](https://github.com/jgdev-arc)
