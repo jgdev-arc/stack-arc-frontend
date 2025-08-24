@@ -26,7 +26,7 @@ A clean, responsive **React** SPA for inventory management. Features a polished 
 ## :earth_americas: Try It
 
 If you’re here to **use the app**, open the **Azure Frontend**:  
-👉 **Open the UI:** https://\<YOUR-SWA-NAME\>.azurestaticapps.net
+👉 **Open the UI:** https://calm-pond-0fe4c9410.2.azurestaticapps.net/
 
 Register, sign in, and explore the dashboard, products, suppliers, and transactions.
 
